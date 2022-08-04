@@ -23,8 +23,8 @@ app.use((req, res, next) => {
   });
 
 // error handler
-const notFoundMiddleware = require('./Auth/middleware/not-found');
-const errorHandlerMiddleware = require('./Auth/middleware/error-handler');
+const notFoundMiddleware = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
 
 //app.use(express.static('./public'))
 app.use(express.json())
