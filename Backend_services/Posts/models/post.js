@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
     name: {
         type:String,
         maxlength:[20,'name cannot be more than 20 characters'],
@@ -13,4 +13,4 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('Post', PostSchema)
