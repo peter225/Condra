@@ -9,6 +9,8 @@ const connectDB = require('./Database/connection')
 require('dotenv').config()
 
 require('express-async-errors');
+
+const authorizeUser = require('./middleware/authentication')
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
@@ -34,7 +36,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 app.use(express.json())
 
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/posts', postRouter)
+app.use('/api/v1/posts',authorizeUser, postRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
