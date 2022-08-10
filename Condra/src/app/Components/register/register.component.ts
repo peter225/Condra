@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder,Validators } from '@angular/forms';
-
+import { Store } from '@ngrx/store';
+import { registerAction } from '../../Auth/store/actions';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +11,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   hide = true;
 
-  constructor() { }
+  constructor(private store:Store) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -34,6 +35,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.form.value);
+    this.store.dispatch(registerAction(this.form.value))
   }
 }
 
