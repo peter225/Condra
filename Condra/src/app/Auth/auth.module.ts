@@ -19,6 +19,8 @@ import { LoginComponent } from '../Components/login/login.component';
 
 
 import { RouterModule, Routes } from '@angular/router';
+import { StoreModule } from "@ngrx/store";
+import { reducers } from "./store/reducer";
 
 const routes: Routes = [
     {
@@ -45,7 +47,8 @@ const routes: Routes = [
         MatExpansionModule,
         MatCheckboxModule,
         ReactiveFormsModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        StoreModule.forFeature('auth',reducers)
     ],
     declarations: [RegisterComponent, LoginComponent]
 })
