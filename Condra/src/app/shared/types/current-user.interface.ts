@@ -1,5 +1,6 @@
 export interface CurrentUserInterface {
     username: string,
     email: string,
-    password: string
+    password: string,
+    token: string
 }
