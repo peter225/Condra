@@ -12,6 +12,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+
 import { FormsModule } from '@angular/forms';
 
 import { RegisterComponent } from '../Components/register/register.component';
@@ -48,6 +50,7 @@ const routes: Routes = [
         MatExpansionModule,
         MatCheckboxModule,
         ReactiveFormsModule,
+        HttpClientModule,
         RouterModule.forChild(routes),
         StoreModule.forFeature('auth',reducers)
     ],
