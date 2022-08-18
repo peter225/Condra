@@ -21,6 +21,7 @@ import { LoginComponent } from '../Components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from "@ngrx/store";
 import { reducers } from "./store/reducer";
+import { AuthService } from "./services/auth.service";
 
 const routes: Routes = [
     {
@@ -50,7 +51,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         StoreModule.forFeature('auth',reducers)
     ],
-    declarations: [RegisterComponent, LoginComponent]
+    declarations: [RegisterComponent, LoginComponent],
+    providers: [AuthService]
 })
 export class AuthModule {
 
