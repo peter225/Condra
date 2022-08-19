@@ -13,6 +13,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
+import { EffectsModule } from '@ngrx/effects';
 
 import { FormsModule } from '@angular/forms';
 
@@ -23,7 +24,9 @@ import { LoginComponent } from '../Components/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from "@ngrx/store";
 import { reducers } from "./store/reducer";
+import { RegisterEffect } from "./effects/register.effect";
 import { AuthService } from "./services/auth.service";
+
 
 const routes: Routes = [
     {
@@ -52,7 +55,8 @@ const routes: Routes = [
         ReactiveFormsModule,
         HttpClientModule,
         RouterModule.forChild(routes),
-        StoreModule.forFeature('auth',reducers)
+        StoreModule.forFeature('auth',reducers),
+        EffectsModule.forFeature([RegisterEffect])
     ],
     declarations: [RegisterComponent, LoginComponent],
     providers: [AuthService]
