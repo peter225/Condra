@@ -4,6 +4,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/Auth/services/auth.service';
 import { isSubmittingSelector } from 'src/app/Auth/store/selectors';
+import { AppStateInterface } from 'src/app/shared/types/appState.interface';
+import { RegisterRequestInterface } from 'src/app/shared/types/register-request.interface';
 import { registerAction } from '../../Auth/store/actions';
 @Component({
   selector: 'app-register',
@@ -15,7 +17,7 @@ export class RegisterComponent implements OnInit {
   isSubmitting$: Observable<boolean>;
   hide = true;
 
-  constructor(private store:Store, private authService: AuthService) { }
+  constructor(private store:Store<AppStateInterface>, private authService: AuthService) { }
 
   ngOnInit(): void {
    this.initializeForm() 
@@ -51,8 +53,11 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.form.value);
+    const request: RegisterRequestInterface = {
+      user: this.form.value
+    }
     this.store.dispatch(registerAction(this.form.value))
-    this.authService.register(this.form.value).subscribe(response=>console.log(response))
+    //this.authService.register(request).subscribe(response=>console.log(response))
   }
 }
 
