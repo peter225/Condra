@@ -17,14 +17,14 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { FormsModule } from '@angular/forms';
 
-import { RegisterComponent } from '../Components/register/register.component';
-import { LoginComponent } from '../Components/login/login.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { LoginComponent } from './Components/login/login.component';
 
 
 import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from "@ngrx/store";
 import { reducers } from "./store/reducer";
-import { RegisterEffect } from "./effects/register.effect";
+import { RegisterEffect } from "./store/effects/register.effect";
 import { AuthService } from "./services/auth.service";
 
 

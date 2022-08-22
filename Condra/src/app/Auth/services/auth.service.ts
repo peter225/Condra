@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { AuthResponseInterface } from 'src/app/shared/types/authResponse.interface';
+import { AuthResponseInterface } from 'src/app/Auth/Types/authResponse.interface';
 import { CurrentUserInterface } from 'src/app/shared/types/current-user.interface';
-import { RegisterRequestInterface } from 'src/app/shared/types/register-request.interface';
+import { RegisterRequestInterface } from 'src/app/Auth/Types/register-request.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
