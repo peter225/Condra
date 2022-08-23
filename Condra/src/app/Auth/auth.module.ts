@@ -58,7 +58,8 @@ const routes: Routes = [
         StoreModule.forFeature('auth',reducers),
         EffectsModule.forFeature([RegisterEffect])
     ],
-    declarations: [RegisterComponent, LoginComponent]
+    declarations: [RegisterComponent, LoginComponent],
+    providers: [AuthService]
 })
 export class AuthModule {
 

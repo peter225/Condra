@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/Auth/services/auth.service';
 import { isSubmittingSelector } from 'src/app/Auth/store/selectors';
 import { AppStateInterface } from 'src/app/shared/types/appState.interface';
-import { RegisterRequestInterface } from 'src/app/shared/types/register-request.interface';
-import { registerAction } from '../../Auth/store/actions';
+import { RegisterRequestInterface } from 'src/app/Auth/Types/register-request.interface';
+import { registerAction } from '../../store/actions/actions';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit {
     const request: RegisterRequestInterface = {
       user: this.form.value
     }
-    this.store.dispatch(registerAction(this.form.value))
+    this.store.dispatch(registerAction({request}))
     //this.authService.register(request).subscribe(response=>console.log(response))
   }
 }
