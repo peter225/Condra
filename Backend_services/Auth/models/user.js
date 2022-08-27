@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv')
 
 const UserSchema = new mongoose.Schema({
-    name: {
+    username: {
         type:String,
         maxlength:[50,'name cannot be more than 50 characters'],
         minlength:3,
@@ -20,12 +20,18 @@ const UserSchema = new mongoose.Schema({
           ],
         unique: true,
     },
+    bio: {
+        type:String ,
+        maxlength:[500,'name cannot be more than 50 characters'],
+        trim:true
+    },
     password: {
         type:String,
         required:[true,'please provide password'],
         minlength: 6
-    }
-})
+    },
+    
+},{ timestamps: true })
 UserSchema.pre('save', async function(next){
     const salt = await bcrypt.genSalt(10)
     this.password = await bcrypt.hash(this.password, salt)
