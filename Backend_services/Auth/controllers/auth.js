@@ -16,7 +16,7 @@ const register = async(req,res) => {
                                                 token:token,
                                                 createdAt: user.createdAt,
                                                 updatedAt: user.updatedAt
-                                                }, token})
+                                                }})
 }
 const login = async(req,res) => {
     const { email, password } = req.body

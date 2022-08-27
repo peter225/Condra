@@ -19,7 +19,7 @@ export class RegisterEffect {
             }))
         }),
         catchError((errrorResponse: HttpErrorResponse)=>{
-            return of(registerFailureAction({errors:errrorResponse.error.errors}))
+            return of(registerFailureAction({errors:errrorResponse.error}))
         })
     ))
 
