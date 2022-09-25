@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { AuthService } from 'src/app/Auth/services/auth.service';
-import { isSubmittingSelector } from 'src/app/Auth/store/selectors';
+import { isSubmittingSelector, validationErrorsSelector } from 'src/app/Auth/store/selectors';
 import { AppStateInterface } from 'src/app/shared/types/appState.interface';
 import { RegisterRequestInterface } from 'src/app/Auth/Types/register-request.interface';
 import { registerAction } from '../../store/actions/actions';
+import { BackendErrorsInterface } from 'src/app/shared/types/backendError.interface';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,6 +16,7 @@ import { registerAction } from '../../store/actions/actions';
 export class RegisterComponent implements OnInit {
   form: FormGroup;
   isSubmitting$: Observable<boolean>;
+  validationErrors$: Observable<BackendErrorsInterface | null >;
   hide = true;
 
   constructor(private store:Store<AppStateInterface>, private authService: AuthService) { }
@@ -38,6 +40,8 @@ export class RegisterComponent implements OnInit {
 
   initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
+    this.validationErrors$ = this.store
+    .pipe(select(validationErrorsSelector));
     console.log('isSubmitting', this.isSubmitting$)
   }
   

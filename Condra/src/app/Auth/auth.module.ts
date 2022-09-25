@@ -26,6 +26,7 @@ import { StoreModule } from "@ngrx/store";
 import { reducers } from "./store/reducer";
 import { RegisterEffect } from "./store/effects/register.effect";
 import { AuthService } from "./services/auth.service";
+import { BackendErrorsComponent } from './Components/register/backend-errors/backend-errors.component';
 
 
 const routes: Routes = [
@@ -58,7 +59,7 @@ const routes: Routes = [
         StoreModule.forFeature('auth',reducers),
         EffectsModule.forFeature([RegisterEffect])
     ],
-    declarations: [RegisterComponent, LoginComponent],
+    declarations: [RegisterComponent, LoginComponent, BackendErrorsComponent],
     providers: [AuthService]
 })
 export class AuthModule {
