@@ -27,6 +27,7 @@ import { reducers } from "./store/reducer";
 import { RegisterEffect } from "./store/effects/register.effect";
 import { AuthService } from "./services/auth.service";
 import { BackendErrorsComponent } from './Components/register/backend-errors/backend-errors.component';
+import { BackEndErrorMessagesModule } from "../shared/modules/BackendErrorMessages/back-end-error-messages/back-end-error-messages.module";
 
 
 const routes: Routes = [
@@ -57,7 +58,8 @@ const routes: Routes = [
         HttpClientModule,
         RouterModule.forChild(routes),
         StoreModule.forFeature('auth',reducers),
-        EffectsModule.forFeature([RegisterEffect])
+        EffectsModule.forFeature([RegisterEffect]),
+        BackEndErrorMessagesModule
     ],
     declarations: [RegisterComponent, LoginComponent, BackendErrorsComponent],
     providers: [AuthService]
