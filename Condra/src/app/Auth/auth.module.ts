@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { CommonModule } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -26,8 +26,9 @@ import { StoreModule } from "@ngrx/store";
 import { reducers } from "./store/reducer";
 import { RegisterEffect } from "./store/effects/register.effect";
 import { AuthService } from "./services/auth.service";
+import { BackEndErrorMessagesModule } from "../shared/modules/BackendErrorMessages/back-end-error-messages.module";
 
-import { BackEndErrorMessagesModule } from "../shared/modules/BackendErrorMessages/back-end-error-messages/back-end-error-messages.module";
+
 
 
 const routes: Routes = [
@@ -62,6 +63,7 @@ const routes: Routes = [
         BackEndErrorMessagesModule
     ],
     declarations: [RegisterComponent, LoginComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
     providers: [AuthService]
 })
 export class AuthModule {
