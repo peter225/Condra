@@ -1,6 +1,7 @@
 
 <div class='header'>Sign Up</div>
 <div class="check"><a [routerLink]="['/login']">Already have an account?</a></div>
+<app-backend-error-messages *ngIf="validationErrors$ | async" [backendErrors]="validationErrors$ | async"></app-backend-error-messages>
 <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Enter your username</mat-label>
