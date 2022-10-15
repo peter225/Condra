@@ -5,7 +5,7 @@
   <app-backend-error-messages 
   *ngIf="validationErrors$ | async"
   [backendErrors]="validationErrors$ | async"
-  ></app-backend-error-messages>
+  >{{(validationErrors$ | async)}}</app-backend-error-messages>
 </div>
 <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width" appearance="fill">
