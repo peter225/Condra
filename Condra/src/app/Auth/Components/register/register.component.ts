@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
-import { map, Observable } from 'rxjs';
+import { map, Observable, pluck } from 'rxjs';
 import { AuthService } from 'src/app/Auth/services/auth.service';
 import { isSubmittingSelector, validationErrorsSelector } from 'src/app/Auth/store/selectors';
 import { AppStateInterface } from 'src/app/shared/types/appState.interface';
@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   isSubmitting$: Observable<boolean>;
   validationErrors$: Observable<BackendErrorsInterface | null >;
+  errors:BackendErrorsInterface
   hide = true;
 
   constructor(private store:Store<AppStateInterface>, private authService: AuthService) { }
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
    this.initializeForm() 
    this.initializeValues()
+   // @ts-ignore: Object is possibly 'null'.
   }
 
   initializeForm(): void {
@@ -40,9 +42,10 @@ export class RegisterComponent implements OnInit {
 
   initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
-    this.validationErrors$ = this.store
-    .pipe(select(validationErrorsSelector));
+    this.validationErrors$ = this.store.pipe(select(validationErrorsSelector))
+    
     console.log('isSubmitting', this.isSubmitting$)
+    
   }
   
   getErrorMessage() {
