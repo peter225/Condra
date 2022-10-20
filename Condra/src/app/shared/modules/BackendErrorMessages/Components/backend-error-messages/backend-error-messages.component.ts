@@ -9,7 +9,8 @@ import { BackendErrorsInterface } from 'src/app/shared/types/backendError.interf
 export class BackendErrorMessagesComponent implements OnInit {
   @Input('backendErrors') backendErrorProps: BackendErrorsInterface;
 
-  errorMessages:string[];
+  errorMessages:string[] = [];
+  test = 'peter';
   constructor() { }
 
   ngOnInit(): void {
