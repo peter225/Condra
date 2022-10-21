@@ -5,6 +5,7 @@ import { AuthResponseInterface } from 'src/app/Auth/Types/authResponse.interface
 import { CurrentUserInterface } from 'src/app/shared/types/current-user.interface';
 import { RegisterRequestInterface } from 'src/app/Auth/Types/register-request.interface';
 import { environment } from 'src/environments/environment';
+import { LoginRequestInterface } from '../Types/login-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,11 @@ export class AuthService {
 
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface>{
     const url = environment.url + '/auth/register';
+    return this.http.post<AuthResponseInterface>(url, data).pipe(map(
+      (response: AuthResponseInterface)=> response.user))
+  }
+  login(data: LoginRequestInterface): Observable<CurrentUserInterface>{
+    const url = environment.url + '/auth/login';
     return this.http.post<AuthResponseInterface>(url, data).pipe(map(
       (response: AuthResponseInterface)=> response.user))
   }

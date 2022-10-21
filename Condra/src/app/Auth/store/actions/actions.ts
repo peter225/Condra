@@ -19,3 +19,18 @@ export const registerFailureAction = createAction(
     ActionTypes.REGISTER_FAILURE,
     props<{errors:BackendErrorsInterface}>()
 )
+
+export const LoginAction = createAction(
+    ActionTypes.LOGIN,
+    props<{request: RegisterRequestInterface}>()
+)
+
+export const LoginSuccessAction = createAction(
+    ActionTypes.LOGIN_SUCCESS,
+    props<{currentUser: CurrentUserInterface}>()
+)
+
+export const LoginFailureAction = createAction(
+    ActionTypes.LOGIN_FAILURE,
+    props<{errors:BackendErrorsInterface}>()
+)

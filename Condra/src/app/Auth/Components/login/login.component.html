@@ -1,1 +1,31 @@
-<p>login works!</p>
+
+<div class='header'>Sign In</div>
+<div class="check"><a [routerLink]="['/register']">Don't have an account?</a></div>
+<div class="er">
+  <app-backend-error-messages 
+  *ngIf="validationErrors$ | async"
+  [backendErrors]="validationErrors$ | async"
+  ></app-backend-error-messages>
+</div>
+<form class="example-form" [formGroup]="form" (ngSubmit)="onLogin()()">
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" formControlName="email" required>
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="form.value.email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        [disabled]="isSubmitting$ | async"
+        color="accent"
+        type="submit">Login
+    </button>
+</form>

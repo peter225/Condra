@@ -18,6 +18,7 @@ const register = async(req,res) => {
                                                 updatedAt: user.updatedAt
                                                 }})
 }
+
 const login = async(req,res) => {
     const { email, password } = req.body
     if(!email || !password){
@@ -35,7 +36,14 @@ const login = async(req,res) => {
 
     const token = user.createJWT()
 
-    res.status(StatusCodes.OK).json({user:{username:user.username}, token})
+    res.status(StatusCodes.OK).json({user:{ username:user.username,
+                                            email:user.email,
+                                            bio:user.bio,
+                                            token:token,
+                                            createdAt: user.createdAt,
+                                            updatedAt: user.updatedAt
+                                        }
+                                    })
 
 }
 
