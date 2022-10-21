@@ -4,19 +4,19 @@ import { RegisterRequestInterface } from 'src/app/Auth/Types/register-request.in
 import { CurrentUserInterface } from "src/app/shared/types/current-user.interface";
 import { AuthResponseInterface } from "src/app/Auth/Types/authResponse.interface";
 import { BackendErrorsInterface } from "src/app/shared/types/backendError.interface";
+import { LoginRequestInterface } from "../../Types/login-request.interface";
 
-export const registerAction = createAction(
-    ActionTypes.REGISTER,
-    props<{request: RegisterRequestInterface}>()
+export const LoginAction = createAction(
+    ActionTypes.LOGIN,
+    props<{request: LoginRequestInterface}>()
 )
 
-export const registerSuccessAction = createAction(
-    ActionTypes.REGISTER_SUCCESS,
+export const LoginSuccessAction = createAction(
+    ActionTypes.LOGIN_SUCCESS,
     props<{currentUser: CurrentUserInterface}>()
 )
 
-export const registerFailureAction = createAction(
-    ActionTypes.REGISTER_FAILURE,
+export const LoginFailureAction = createAction(
+    ActionTypes.LOGIN_FAILURE,
     props<{errors:BackendErrorsInterface}>()
 )
-
