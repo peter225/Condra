@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, switchMap } from "rxjs";
 import { AuthResponseInterface } from "src/app/Auth/Types/authResponse.interface";
+import { PersistenceService } from "src/app/shared/services/persistence.service";
 import { CurrentUserInterface } from "src/app/shared/types/current-user.interface";
 import { AuthService } from "../../services/auth.service";
 import { registerAction, registerFailureAction, registerSuccessAction } from "../actions/actions";
@@ -10,10 +11,12 @@ import { registerAction, registerFailureAction, registerSuccessAction } from "..
 
 @Injectable()
 export class RegisterEffect {
+    
     register$ = createEffect(()=>this.actions$.pipe(
         ofType(registerAction),
         switchMap(({request})=>{
             return this.authService.register(request).pipe(map((currentUser: CurrentUserInterface)=>{
+                this.persistenceService.set('accessToken',currentUser.token)
                 return registerSuccessAction({currentUser})
                 
             }))
@@ -23,5 +26,9 @@ export class RegisterEffect {
         })
     ))
 
-    constructor(private actions$: Actions, private authService: AuthService){}
+    redirectAfterSubmission$ = createEffect(()=>{
+        
+    })
+        
+    constructor(private actions$: Actions, private authService: AuthService,private persistenceService: PersistenceService){}
 }

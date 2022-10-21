@@ -27,6 +27,7 @@ import { reducers } from "./store/reducer";
 import { RegisterEffect } from "./store/effects/register.effect";
 import { AuthService } from "./services/auth.service";
 import { BackEndErrorMessagesModule } from "../shared/modules/BackendErrorMessages/back-end-error-messages.module";
+import { PersistenceService } from "../shared/services/persistence.service";
 
 
 
@@ -64,7 +65,7 @@ const routes: Routes = [
     ],
     declarations: [RegisterComponent, LoginComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    providers: [AuthService]
+    providers: [AuthService,PersistenceService]
 })
 export class AuthModule {
 
