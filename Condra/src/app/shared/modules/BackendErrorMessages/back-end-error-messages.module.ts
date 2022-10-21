@@ -10,6 +10,7 @@ import { BackendErrorMessagesComponent } from './Components/backend-error-messag
   imports: [
     CommonModule
   ],
+  exports: [BackendErrorMessagesComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BackEndErrorMessagesModule { }

@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   isSubmitting$: Observable<boolean>;
   validationErrors$: Observable<BackendErrorsInterface | null >;
   errors:BackendErrorsInterface
-  email:string
+  email:string = "peteradeyemo66"
   hide = true;
 
   constructor(private store:Store<AppStateInterface>, private authService: AuthService) { }
