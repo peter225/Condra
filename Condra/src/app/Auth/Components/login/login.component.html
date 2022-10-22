@@ -7,7 +7,7 @@
   [backendErrors]="validationErrors$ | async"
   ></app-backend-error-messages>
 </div>
-<form class="example-form" [formGroup]="form" (ngSubmit)="onLogin()()">
+<form class="example-form" [formGroup]="form" (ngSubmit)="onLogin()">
     
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Enter your email</mat-label>
@@ -24,7 +24,7 @@
       </mat-form-field>
       <button
         mat-raised-button
-        [disabled]="isSubmitting$ | async"
+        [disabled]="isLoggedIn$ | async"
         color="accent"
         type="submit">Login
     </button>

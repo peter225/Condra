@@ -8,6 +8,8 @@ import { AppStateInterface } from 'src/app/shared/types/appState.interface';
 import { RegisterRequestInterface } from 'src/app/Auth/Types/register-request.interface';
 import { registerAction } from '../../store/actions/actions';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendError.interface';
+import { LoginRequestInterface } from '../../Types/login-request.interface';
+import { LoginAction } from '../../store/actions/login-action';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   isLoggedIn$: Observable<boolean>;
   validationErrors$: Observable<BackendErrorsInterface | null >;
-  
+  hide = true;
 
   constructor(private store:Store<AppStateInterface>, private authService: AuthService) { }
 
@@ -58,13 +60,13 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     console.log('login',this.form.value, this.form.valid);
-    const request: RegisterRequestInterface = {
+    const request: LoginRequestInterface = {
       email:this.form.value.email,
       password: this.form.value.password,
-      username: this.form.value.username
+      
     }
     //console.log(request)
-    this.store.dispatch(registerAction({request:request}))
+    this.store.dispatch(LoginAction({request:request}))
     //this.authService.register(request).subscribe(response=>console.log(response))
   }
 }
