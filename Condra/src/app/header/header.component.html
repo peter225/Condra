@@ -1,3 +1,9 @@
 <mat-toolbar>
     <span color="primary"><h1>Condra</h1></span>
-  </mat-toolbar>
+    <span class="example-spacer"></span>
+    <a [routerLink]="['/']">
+      <span class="mat-button-wrapper"><mat-icon>home</mat-icon></span>
+      <span matripple class="mat-ripple mat-button-ripple">Home</span>
+      <span class="mat-button-focus-overlay"></span>
+    </a>
+</mat-toolbar>

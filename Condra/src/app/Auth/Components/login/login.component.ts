@@ -17,7 +17,7 @@ import { LoginAction } from '../../store/actions/login-action';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  isLoggedIn$: Observable<boolean>;
+  isSubmitting$: Observable<boolean>;
   validationErrors$: Observable<BackendErrorsInterface | null >;
   hide = true;
 
@@ -41,10 +41,10 @@ export class LoginComponent implements OnInit {
   }
 
   initializeValues(): void {
-    this.isLoggedIn$ = this.store.pipe(select(isSubmittingSelector))
+    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
     this.validationErrors$ = this.store.pipe(select(validationErrorsSelector))
     
-    console.log('isSubmitting', this.isLoggedIn$)
+    console.log('isSubmitting', this.isSubmitting$)
     
   }
   

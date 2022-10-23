@@ -9,10 +9,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { HeaderComponent } from './header/header.component';
+import { MatIconModule } from '@angular/material/icon';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
-
+//MatIconModule
 
 
 
@@ -29,6 +30,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     AuthModule,
     MatToolbarModule,
+    MatIconModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
