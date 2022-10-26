@@ -4,6 +4,41 @@
     <a [routerLink]="['/']">
       <span class="mat-button-wrapper"><mat-icon>home</mat-icon></span>
       Home
-      <span class="mat-button-focus-overlay"></span>
+      
     </a>
+    <ng-container *ngIf="isLoggedIn$ | async">
+      <ul>
+        <li>
+          <a [routerLink]="['/articles/new']">
+            <span class="mat-button-wrapper"><mat-icon>post_add</mat-icon></span>
+            New Post
+            
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/settings']">
+            <span class="mat-button-wrapper"><mat-icon>settings_application</mat-icon></span>
+            Settings
+            
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/profile', (currentUser$ |async)?.username]">
+            <span class="mat-button-wrapper"><mat-icon>account_circle</mat-icon></span>
+            <img [src]="(currentUser$ |async)?.image">
+            {{(currentUser$ |async )?.username}}
+          </a>
+        </li>
+    </ul>
+    </ng-container>
+    <ng-container *ngIf="isAnonymous$ | async ">
+      <ul>
+        <a [routerLink]="['/login']">
+          Sign In
+        </a>
+        <a [routerLink]="['/register']">
+          Sign Up
+        </a>
+    </ul>
+    </ng-container>
 </mat-toolbar>

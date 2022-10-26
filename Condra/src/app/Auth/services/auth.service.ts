@@ -23,10 +23,12 @@ export class AuthService {
     return this.http.post<AuthResponseInterface>(url, data).pipe(map(
       this.getUser))
   }
+
   login(data: LoginRequestInterface): Observable<CurrentUserInterface>{
     const url = environment.url + '/auth/login';
     return this.http
                 .post<AuthResponseInterface>(url, data)
                   .pipe(map(this.getUser))
   }
+  
 }
