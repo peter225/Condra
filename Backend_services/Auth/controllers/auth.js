@@ -49,4 +49,24 @@ const login = async(req,res) => {
 
 }
 
-module.exports = {register, login}
+const getUser = async(req, res) => {
+    try {
+        const user = await User.find()
+
+        if(!task){
+            return res.status(StatusCodes.NOT_FOUND).json({msg: `No user found`})
+        }
+        res.status(StatusCodes.OK).json({user:{ username:user.username,
+                                                email:user.email,
+                                                bio:user.bio,
+                                                token:token,
+                                                createdAt: user.createdAt,
+                                                updatedAt: user.updatedAt
+                                            }
+        })
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error})
+    }
+}
+
+module.exports = {register, login,getUser}
