@@ -29,6 +29,7 @@ import { AuthService } from "./services/auth.service";
 import { BackEndErrorMessagesModule } from "../shared/modules/BackendErrorMessages/back-end-error-messages.module";
 import { PersistenceService } from "../shared/services/persistence.service";
 import { LoginEffect } from "./store/effects/login.effect";
+import { getUserEffect } from "./store/effects/getUser.effect";
 
 
 
@@ -61,7 +62,7 @@ const routes: Routes = [
         HttpClientModule,
         RouterModule.forChild(routes),
         StoreModule.forFeature('auth',reducers),
-        EffectsModule.forFeature([RegisterEffect,LoginEffect]),
+        EffectsModule.forFeature([RegisterEffect,LoginEffect, getUserEffect]),
         BackEndErrorMessagesModule
     ],
     declarations: [RegisterComponent, LoginComponent],

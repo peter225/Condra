@@ -2,7 +2,7 @@
     <span color="primary"><h1>Condra</h1></span>
     <span class="example-spacer"></span>
     <a [routerLink]="['/']">
-      <span class="mat-button-wrapper"><mat-icon>home</mat-icon></span>
+      
       Home
       
     </a>
@@ -33,12 +33,16 @@
     </ng-container>
     <ng-container *ngIf="isAnonymous$ | async ">
       <ul>
-        <a [routerLink]="['/login']">
-          Sign In
-        </a>
-        <a [routerLink]="['/register']">
-          Sign Up
-        </a>
+        <li>
+          <a [routerLink]="['/login']">
+            Sign In
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/register']">
+            Sign Up
+          </a>
+        </li>
     </ul>
     </ng-container>
 </mat-toolbar>

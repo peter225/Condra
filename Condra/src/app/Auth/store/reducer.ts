@@ -92,7 +92,7 @@ const authReducer = createReducer(
             ...state,
             isLoading: false,
             isLoggedIn: false,
-            validationErrors: action.errors
+            currentUser: null
         })
 
     ),

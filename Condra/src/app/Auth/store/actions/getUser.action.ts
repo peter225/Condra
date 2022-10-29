@@ -16,6 +16,5 @@ export const GetUserSuccessAction = createAction(
 )
 
 export const GetUserFailureAction = createAction(
-    ActionTypes.GET_USER_FAILURE,
-    props<{errors:BackendErrorsInterface}>()
+    ActionTypes.GET_USER_FAILURE
 )

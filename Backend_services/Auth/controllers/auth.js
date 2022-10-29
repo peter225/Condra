@@ -65,7 +65,7 @@ const getUser = async(req, res) => {
                                             }
         })
     } catch (error) {
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error})
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
     }
 }
 
