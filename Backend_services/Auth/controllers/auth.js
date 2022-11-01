@@ -1,7 +1,7 @@
 const User = require('../models/user')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, UnauthenticatedError } = require('../../errors')
-
+var userObject = {};
 
 const register = async(req,res) => {
     
@@ -37,8 +37,8 @@ const login = async(req,res) => {
     }
 
     const token = user.createJWT()
-
-    res.status(StatusCodes.OK).json({user:{ username:user.username,
+    //userObject =    
+    userObject = res.status(StatusCodes.OK).json({user:{ username:user.username,
                                             email:user.email,
                                             bio:user.bio,
                                             token:token,
@@ -46,26 +46,21 @@ const login = async(req,res) => {
                                             updatedAt: user.updatedAt
                                         }
                                     })
-
+    
 }
 
 const getUser = async(req, res) => {
     try {
-        const user = await User.find()
-
-        if(!task){
-            return res.status(StatusCodes.NOT_FOUND).json({msg: `No user found`})
+        console.log(userObject)
+        if(Object.keys(userObject).length===0){
+            res.status(403).json({msg:'unauthorized request'})
+        }else{
+            res.status(StatusCodes.OK).json(userObject)
         }
-        res.status(StatusCodes.OK).json({user:{ username:user.username,
-                                                email:user.email,
-                                                bio:user.bio,
-                                                token:token,
-                                                createdAt: user.createdAt,
-                                                updatedAt: user.updatedAt
-                                            }
-        })
+        
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+        //res.status(403).json({error})
     }
 }
 
