@@ -1,4 +1,4 @@
-import { CurrentUserInterface } from "./current-user.interface";
+import { ProfileInterface } from "./profile.interface";
 
 export interface ArticleInterface{
     title: string,
@@ -8,9 +8,7 @@ export interface ArticleInterface{
     updatedAt: string,
     tagList: string[],
     description: string,
-    author:CurrentUserInterface,
+    author:ProfileInterface,
     favorited:boolean,
     favoritesCount:number
-
-
 }
