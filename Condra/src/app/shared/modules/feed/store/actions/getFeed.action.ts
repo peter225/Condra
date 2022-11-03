@@ -12,6 +12,6 @@ export const getFeedSuccessAction = createAction(
     props<{feed: GetFeedResponseInterface}>()
 )
 
-export const getUserFailureAction = createAction(
+export const getFeedFailureAction = createAction(
     ActionTypes.GET_FEED_FAILURE
 )
