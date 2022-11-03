@@ -53,16 +53,11 @@ const login = async(req,res) => {
 const getUser = async(req, res) => {
     try {
         const user = await User.findOne({email: req.user.email})
+        //console.log(user.username)
         if(!user){
             throw new UnauthenticatedError('Invalid email');
         }
-        res.status(StatusCodes.OK).json({   username:user.username,
-                                            email:user.email,
-                                            bio:user.bio,
-                                            token:token,
-                                            createdAt: user.createdAt,
-                                            updatedAt: user.updatedAt
-        })
+        res.status(StatusCodes.OK).json({user})
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
         //res.status(403).json({error})

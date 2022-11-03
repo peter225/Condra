@@ -13,11 +13,11 @@ const auth = async (req,res,next)=>{
     }
 
     const token = authHeader.split(' ')[1]
-    console.log(token)
+    //console.log(token)
     try {
         const payload = jwt.verify(token, process.env.JWT_SECRET)
-
-        req.user = payload.user
+        //console.log(payload)
+        req.user = payload
 
         next()
     } catch (error) {
