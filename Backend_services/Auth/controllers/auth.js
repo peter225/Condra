@@ -56,6 +56,13 @@ const getUser = async(req, res) => {
         if(!user){
             throw new UnauthenticatedError('Invalid email');
         }
+        res.status(StatusCodes.OK).json({   username:user.username,
+                                            email:user.email,
+                                            bio:user.bio,
+                                            token:token,
+                                            createdAt: user.createdAt,
+                                            updatedAt: user.updatedAt
+        })
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
         //res.status(403).json({error})
