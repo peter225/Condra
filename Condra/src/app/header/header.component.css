@@ -22,3 +22,7 @@ ul{
 ul li {
     padding: 0 10px;
 }
+h1{
+    font-weight: bold;
+    font-size: 25px;
+}
