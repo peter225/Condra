@@ -1,7 +1,7 @@
 const User = require('../models/user')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, UnauthenticatedError } = require('../../errors')
-var userObject = {};
+
 
 const register = async(req,res) => {
     
@@ -38,7 +38,7 @@ const login = async(req,res) => {
 
     const token = user.createJWT()
     //userObject =    
-    userObject = res.status(StatusCodes.OK).json({user:{ username:user.username,
+    res.status(StatusCodes.OK).json({user:{ username:user.username,
                                             email:user.email,
                                             bio:user.bio,
                                             token:token,
@@ -46,18 +46,16 @@ const login = async(req,res) => {
                                             updatedAt: user.updatedAt
                                         }
                                     })
+    //return userObject
     
 }
 
 const getUser = async(req, res) => {
     try {
-        console.log(userObject)
-        if(Object.keys(userObject).length===0){
-            res.status(403).json({msg:'unauthorized request'})
-        }else{
-            res.status(StatusCodes.OK).json(userObject)
+        const user = await User.findOne({email: req.user.email})
+        if(!user){
+            throw new UnauthenticatedError('Invalid email');
         }
-        
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
         //res.status(403).json({error})

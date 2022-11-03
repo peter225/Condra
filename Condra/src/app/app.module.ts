@@ -13,6 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
+import { PersistenceService } from './shared/services/persistence.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 //MatIconModule
 
 
@@ -36,7 +39,14 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([])
   ],
-  providers: [],
+  providers: [
+    PersistenceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

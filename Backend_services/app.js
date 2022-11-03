@@ -10,20 +10,24 @@ require('dotenv').config()
 
 require('express-async-errors');
 
-const authorizeUser = require('./middleware/authentication')
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'Origin,X-Requested-With, Content-Type, Accept'
-    );
-    res.setHeader(
-      'Access-Control-Allow-Methods',
-      'GET, POST, PATCH, DELETE, PUT, OPTIONS'
-    );
-    next();
-  });
+const helmet = require('helmet');
+const cors = require('cors');
+const xss = require('xss-clean');
+const rateLimiter = require('express-rate-limit');
 
+
+const authorizeUser = require('./middleware/authentication')
+app.set('trust proxy', 1);
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // limit each IP to 100 requests per windowMs
+  })
+);
+app.use(express.json());
+app.use(helmet());
+app.use(cors());
+app.use(xss());
 //router
 const authRouter = require('./Auth/routes/auth')
 const postRouter = require('./Posts/routes/post')
@@ -33,7 +37,7 @@ const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
 //app.use(express.static('./public'))
-app.use(express.json())
+//app.use(express.json())
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/posts',authorizeUser, postRouter)
