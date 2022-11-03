@@ -1,6 +1,5 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of, switchMap,tap } from "rxjs";
 import { FeedService } from "../../services/feed.service";
@@ -11,7 +10,7 @@ import { getFeedAction, getFeedFailureAction, getFeedSuccessAction } from "../ac
 @Injectable()
 export class GetFeedEffect {
     
-    feed$ = createEffect(()=>this.actions$.pipe(
+    getFeed$ = createEffect(()=>this.actions$.pipe(
         ofType(getFeedAction),
         switchMap(({url})=>{
             return this.feedService.getFeed(url).pipe(map((feed: GetFeedResponseInterface)=>{
@@ -25,18 +24,7 @@ export class GetFeedEffect {
         })
     ))
 
-    redirectAfterLogin$ = createEffect(()=>this.actions$.pipe(
-        ofType(LoginSuccessAction),
-        tap(()=>{
-            //console.log('1')
-            this.router.navigateByUrl('/');
-        })
-    ),{dispatch:false}
-
-    )
-        
     constructor(private actions$: Actions, 
-                private feedService: FeedService,
-                private router:Router
+                private feedService: FeedService
                 ){}
 }

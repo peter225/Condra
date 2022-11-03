@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedComponent } from './Components/feed/feed.component';
 import { FeedService } from './services/feed.service';
+import { EffectsModule } from '@ngrx/effects';
+import { GetFeedEffect } from './store/effects/getFeed.effect';
 
 
 
@@ -10,7 +12,8 @@ import { FeedService } from './services/feed.service';
     FeedComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    EffectsModule.forFeature([GetFeedEffect])
   ],
   exports: [
     FeedComponent
