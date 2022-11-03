@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
 import { PersistenceService } from './shared/services/persistence.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { GlobalFeedComponent } from './globalFeed/Components/global-feed/global-feed.component';
 //MatIconModule
 
 
@@ -25,7 +26,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    GlobalFeedComponent
     
   ],
   imports: [
