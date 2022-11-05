@@ -19,7 +19,7 @@ export class GetFeedEffect {
                 
             }))
         }),
-        catchError((errrorResponse: HttpErrorResponse)=>{
+        catchError(()=>{
             return of(getFeedFailureAction())
         })
     ))
