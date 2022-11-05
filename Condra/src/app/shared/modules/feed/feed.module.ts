@@ -4,6 +4,8 @@ import { FeedComponent } from './Components/feed/feed.component';
 import { FeedService } from './services/feed.service';
 import { EffectsModule } from '@ngrx/effects';
 import { GetFeedEffect } from './store/effects/getFeed.effect';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/feed.reducer';
 
 
 
@@ -13,7 +15,8 @@ import { GetFeedEffect } from './store/effects/getFeed.effect';
   ],
   imports: [
     CommonModule,
-    EffectsModule.forFeature([GetFeedEffect])
+    EffectsModule.forFeature([GetFeedEffect]),
+    StoreModule.forFeature('feed',reducers)
   ],
   exports: [
     FeedComponent
