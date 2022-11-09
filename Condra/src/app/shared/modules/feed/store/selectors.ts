@@ -14,7 +14,7 @@ export const errorSelector = createSelector(
     feedFeatureSelector, 
     (feedState: FeedStateInterface)=> feedState.error
 )
-export const dataSelector = createSelector(
+export const feedSelector = createSelector(
     feedFeatureSelector, 
     (feedState: FeedStateInterface)=> feedState.data
 )
