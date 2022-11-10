@@ -7,6 +7,19 @@ import { GetFeedEffect } from './store/effects/getFeed.effect';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/feed.reducer';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card'
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
 
 
 @NgModule({
@@ -15,6 +28,17 @@ import { reducers } from './store/feed.reducer';
   ],
   imports: [
     CommonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatListModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatSliderModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed',reducers)
   ],

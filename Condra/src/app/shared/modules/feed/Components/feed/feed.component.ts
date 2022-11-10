@@ -23,8 +23,6 @@ export class FeedComponent implements OnInit {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.feeds$ = this.store.pipe(select(feedSelector))
     this.error$ = this.store.pipe(select(errorSelector))
-    
-    
   }
 
   fetchData() : void {
