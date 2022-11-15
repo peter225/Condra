@@ -1,10 +1,26 @@
 .example-card {
-    max-width: 400px;
+    margin-top: 15px;
+    max-width: 800px;
     margin-bottom: 8px;
     margin-left: 100px
+  }
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
   }
   mat-spinner {
     max-width: 400px;
     margin-bottom: 8px;
     margin-left: 100px
   }
+  a{
+      text-decoration: inherit;
+      color:inherit
+  }
+  .check {
+      display: -webkit-flex;
+      padding-bottom: 3px;
+  }
+  .check1 {
+    display: -webkit-flex
+}

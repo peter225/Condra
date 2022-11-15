@@ -18,6 +18,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -39,6 +40,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatInputModule,
     MatSidenavModule,
     MatSliderModule,
+    RouterModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed',reducers)
   ],
