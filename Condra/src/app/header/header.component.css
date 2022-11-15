@@ -6,13 +6,14 @@ body, * {
 }
 a {
     display: flex;
-    text-decoration: none;
+    text-decoration: inherit;
 }
 a span .mat-icon {
     padding-top: 3.5px !important;
 } 
 ul{
     list-style-type: none;
+    text-decoration: inherit;
     display: flex;
     margin: 10px 20px;
     padding: 4px;
