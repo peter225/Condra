@@ -18,6 +18,7 @@ export class FeedComponent implements OnInit {
   isLoading$: Observable<boolean>
   feeds$: Observable<GetFeedResponseInterface | null>
   error$: Observable<string | null>
+  
 
   initializeValues(): void {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
