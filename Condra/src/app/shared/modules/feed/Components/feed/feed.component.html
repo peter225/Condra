@@ -34,4 +34,11 @@
             <button mat-button>SHARE</button>
           </mat-card-actions>
     </mat-card>
+    <app-pagination
+    [total]="(feeds$ | async)?.articlesCount"
+    [limit]="limit"
+    [url]="baseUrl"
+    [currentPage]="currentPage">
+    </app-pagination>
+    
 </div>

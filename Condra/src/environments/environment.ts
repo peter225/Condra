@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   url: 'http://localhost:3000/api/v1',
-  apiUrl: 'https://conduit.productionready.io/api'
+  apiUrl: 'https://conduit.productionready.io/api',
+  limit: 20
 };
 
 /*
