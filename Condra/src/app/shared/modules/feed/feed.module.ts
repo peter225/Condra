@@ -19,6 +19,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RouterModule } from '@angular/router';
+import { PaginationModule } from '../pagination/pagination/pagination.module';
 
 
 
@@ -41,6 +42,7 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     MatSliderModule,
     RouterModule,
+    PaginationModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed',reducers)
   ],

@@ -4,8 +4,8 @@
     margin-bottom: 8px;
     margin-left: 100px
   }
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  .example-header-image, img {
+    
     background-size: cover;
   }
   mat-spinner {

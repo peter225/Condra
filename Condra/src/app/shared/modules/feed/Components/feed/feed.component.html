@@ -8,7 +8,9 @@
     <div class="check1">
         <mat-card-header>
             <a [routerLink]="['/profiles', article.author.username]">
-                <div mat-card-avatar class="example-header-image"></div>
+                <div mat-card-avatar class="example-header-image">
+                    <img mat-card-avatar class="example-header-image" [src]="article.author.image">
+                </div>
             </a>
         </mat-card-header>
         <div class="check">
@@ -17,7 +19,7 @@
                     <h4>{{article?.author?.username}}</h4>
                 </a>
             </mat-card-title>
-            <h4>&nbsp;{{article?.createdAt | date }}</h4>
+            <h4>&nbsp;.{{article?.createdAt | date }}</h4>
         </div>
     </div>
         <a [routerLink]="['/articles',article.slug]">
@@ -38,7 +40,10 @@
     [total]="(feeds$ | async)?.articlesCount"
     [limit]="limit"
     [url]="baseUrl"
-    [currentPage]="currentPage">
+    [currentPage]="currentPage"
+    [data] = "feeds$"
+    [dataSource]="(feeds$ | async)?.articles">
     </app-pagination>
+    <!-- <app-pagination></app-pagination> -->
     
 </div>

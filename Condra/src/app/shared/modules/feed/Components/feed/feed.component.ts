@@ -38,6 +38,8 @@ export class FeedComponent implements OnInit,OnDestroy {
       (params: Params)=>{
         console.log(params)
         this.currentPage = Number(params['page'] || '1')
+        console.log(this.currentPage)
+        
     })
   }
 
@@ -48,6 +50,7 @@ export class FeedComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.fetchData()
     this.initializeValues()
+    this.initializeListeners()
   }
   ngOnDestroy():void {
     this.queryParamSubscription.unsubscribe()
