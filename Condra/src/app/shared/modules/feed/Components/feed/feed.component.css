@@ -4,6 +4,11 @@
     margin-bottom: 8px;
     margin-left: 100px
   }
+  .tags{
+    display: flex;
+    text-align: justify;
+  }
+  
   .example-header-image, img {
     
     background-size: cover;

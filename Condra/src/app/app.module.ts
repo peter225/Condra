@@ -18,6 +18,7 @@ import { AuthInterceptorService } from './shared/services/auth-interceptor.servi
 import { PersistenceService } from './shared/services/persistence.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalFeedModule } from './globalFeed/global-feed/global-feed.module';
+import { TagListComponent } from './shared/Components/tag-list/tag-list.component';
 //MatIconModule
 
 
@@ -27,7 +28,8 @@ import { GlobalFeedModule } from './globalFeed/global-feed/global-feed.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    TagListComponent
     
   ],
   imports: [

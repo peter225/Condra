@@ -17,9 +17,11 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
 import { PaginationModule } from '../pagination/pagination/pagination.module';
+import { TagListModule } from '../tagList/tag-list/tag-list.module';
 
 
 
@@ -37,11 +39,13 @@ import { PaginationModule } from '../pagination/pagination/pagination.module';
     MatCheckboxModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatChipsModule,
     MatExpansionModule,
     MatInputModule,
     MatSidenavModule,
     MatSliderModule,
     RouterModule,
+    TagListModule,
     PaginationModule,
     EffectsModule.forFeature([GetFeedEffect]),
     StoreModule.forFeature('feed',reducers)

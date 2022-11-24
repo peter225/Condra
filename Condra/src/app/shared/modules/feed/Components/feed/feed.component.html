@@ -32,8 +32,12 @@
             </mat-card-content>
         </a>
         <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
+            <div class="tags">
+                <app-tag-list [tagList]="article?.tagList"></app-tag-list>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </div>
+            
           </mat-card-actions>
     </mat-card>
     <app-pagination
