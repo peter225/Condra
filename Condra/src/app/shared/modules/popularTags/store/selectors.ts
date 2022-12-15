@@ -16,5 +16,5 @@ export const errorSelector = createSelector(
 )
 export const tagsSelector = createSelector(
     popularTagsFeatureSelector,
-    (popularTagsState: PopularTagsStateInterface)=> popularTagsState.error
+    (popularTagsState: PopularTagsStateInterface)=> popularTagsState.data
 )
