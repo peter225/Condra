@@ -1,1 +1,5 @@
-<p>popular-tags works!</p>
+<div class="tags">
+    <mat-chip-list aria-label="tags" *ngFor = "let t of popularTags$">
+        <mat-chip>{{t}}</mat-chip>
+    </mat-chip-list>
+</div>
