@@ -1,6 +1,10 @@
+
+<h2>Recommended Topics</h2>
 <mat-spinner *ngIf = "isLoading$ | async"></mat-spinner>
-<div class="tags">
-    <mat-chip-list aria-label="tags" *ngFor = "let t of (popularTags$ | async)">
-        <mat-chip>{{t}}</mat-chip>
-    </mat-chip-list>
+<div class="tags" *ngIf = "popularTags$ | async">
+    <a *ngFor = "let t of popularTags$ | async" [routerLink]="['/tags', t]" class="tags">
+        <mat-chip-list aria-label="tags" >
+            <mat-chip>{{t}}</mat-chip>
+        </mat-chip-list>
+    </a>
 </div>

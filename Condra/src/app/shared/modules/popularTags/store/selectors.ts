@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { PopularTagsStateInterface } from "../types/popularTagsState.interface";
 
 export const popularTagsFeatureSelector = createFeatureSelector<
-PopularTagsStateInterface>('popular tags')
+PopularTagsStateInterface>('popularTags')
 
 
 export const isLoadingSelector = createSelector(

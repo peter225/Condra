@@ -9,6 +9,7 @@ import { reducers } from '../store/reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { GetPopularTagsEffect } from '../store/effects/getPopularTagEffect';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -16,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   declarations: [PopularTagsComponent],
   imports: [
     CommonModule,
+    RouterModule,
     StoreModule.forFeature('popularTags',reducers),
     EffectsModule.forFeature([GetPopularTagsEffect]),
     MatChipsModule,

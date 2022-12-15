@@ -1,0 +1,9 @@
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: justify;
+}
+app-popular-tags {
+    padding-left: 10px;
+}

@@ -30,6 +30,7 @@ export class PopularTagsComponent implements OnInit {
   initializeValues(): void {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.popularTags$ = this.store.pipe(select(tagsSelector))
+    console.log(this.popularTags$)
     this.error$ = this.store.pipe(select(errorSelector))
   }
 
