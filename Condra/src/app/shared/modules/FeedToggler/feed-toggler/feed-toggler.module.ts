@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [FeedTogglerComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [FeedTogglerComponent]
 })
 export class FeedTogglerModule { }
