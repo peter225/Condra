@@ -1,5 +1,6 @@
+<mat-spinner *ngIf = "isLoading$ | async"></mat-spinner>
 <div class="tags">
-    <mat-chip-list aria-label="tags" *ngFor = "let t of popularTags$">
+    <mat-chip-list aria-label="tags" *ngFor = "let t of (popularTags$ | async)">
         <mat-chip>{{t}}</mat-chip>
     </mat-chip-list>
 </div>
