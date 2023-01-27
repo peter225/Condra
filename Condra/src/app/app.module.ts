@@ -19,8 +19,6 @@ import { PersistenceService } from './shared/services/persistence.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalFeedModule } from './globalFeed/global-feed/global-feed.module';
 import { TagListComponent } from './shared/Components/tag-list/tag-list.component';
-import { FeddTogglerComponent } from './shared/modules/FeedToggler/fedd-toggler/fedd-toggler.component';
-import { FeedTogglerComponent } from './shared/modules/FeedToggler/Components/feed-toggler/feed-toggler.component';
 
 
 
@@ -30,9 +28,7 @@ import { FeedTogglerComponent } from './shared/modules/FeedToggler/Components/fe
   declarations: [
     AppComponent,
     HeaderComponent,
-    TagListComponent,
-    FeddTogglerComponent,
-    FeedTogglerComponent
+    TagListComponent
     
   ],
   imports: [
