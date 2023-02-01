@@ -19,6 +19,7 @@ import { PersistenceService } from './shared/services/persistence.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalFeedModule } from './globalFeed/global-feed/global-feed.module';
 import { TagListComponent } from './shared/Components/tag-list/tag-list.component';
+import { YourFeedComponent } from './yourFeed/Components/your-feed/your-feed.component';
 
 
 
@@ -28,7 +29,8 @@ import { TagListComponent } from './shared/Components/tag-list/tag-list.componen
   declarations: [
     AppComponent,
     HeaderComponent,
-    TagListComponent
+    TagListComponent,
+    YourFeedComponent
     
   ],
   imports: [
