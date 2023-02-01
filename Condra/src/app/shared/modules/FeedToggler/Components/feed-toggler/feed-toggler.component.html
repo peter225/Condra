@@ -10,3 +10,19 @@
     </a>
 </mat-tab-group>
    -->
+   <div class="feed-container">
+    <div class="feed-tabs">
+    <a [routerLink]="['/feed']" routerLinkActive="active" *ngIf="isLoggedIn$ | async">
+            <div class="tab" (click)="setActiveTab('Your feed')" [class.active]="activeTab === 'Your feed'">Your feed</div>
+    </a>
+    <a [routerLink]="['/']" routerLinkActive="active" >
+            <div class="tab" (click)="setActiveTab('Global feed')" [class.active]="activeTab === 'Global feed'">Global feed</div>
+    </a> 
+    <a [routerLink]="['/tags', tagNameProps]" routerLinkActive="active" *ngIf="tagNameProps">
+        <div class="tab" (click)="setActiveTab('Global feed')" [class.active]="activeTab === 'Global feed'">{{tagNameProps}}</div>
+</a>
+</div>
+    
+</div>
+  
+  
