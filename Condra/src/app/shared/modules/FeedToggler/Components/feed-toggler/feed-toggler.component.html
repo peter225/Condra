@@ -12,7 +12,9 @@
    -->
    <div class="feed-container">
     <div class="feed-tabs">
-    <a [routerLink]="['/feed']" routerLinkActive="active" *ngIf="isLoggedIn$ | async">
+    <a [routerLink]="['/feed']" 
+        routerLinkActive="active" 
+        *ngIf="isLoggedIn$ | async">
             <div class="tab" (click)="setActiveTab('Your feed')" [class.active]="activeTab === 'Your feed'">Your feed</div>
     </a>
     <a [routerLink]="['/']" routerLinkActive="active" >
