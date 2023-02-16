@@ -19,7 +19,7 @@ import { PersistenceService } from './shared/services/persistence.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalFeedModule } from './globalFeed/global-feed/global-feed.module';
 import { TagListComponent } from './shared/Components/tag-list/tag-list.component';
-import { YourFeedComponent } from './yourFeed/Components/your-feed/your-feed.component';
+import { YourFeedModule } from './yourFeed/your-feed/your-feed.module';
 
 
 
@@ -30,7 +30,6 @@ import { YourFeedComponent } from './yourFeed/Components/your-feed/your-feed.com
     AppComponent,
     HeaderComponent,
     TagListComponent,
-    YourFeedComponent
     
   ],
   imports: [
@@ -38,6 +37,7 @@ import { YourFeedComponent } from './yourFeed/Components/your-feed/your-feed.com
     AppRoutingModule,
     AuthModule,
     GlobalFeedModule,
+    YourFeedModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
