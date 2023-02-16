@@ -20,7 +20,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalFeedModule } from './globalFeed/global-feed/global-feed.module';
 import { TagListComponent } from './shared/Components/tag-list/tag-list.component';
 import { YourFeedModule } from './yourFeed/your-feed/your-feed.module';
-import { TagFeedComponent } from './tagFeed/Components/tag-feed/tag-feed.component';
+import { TagFeedModule } from './tagFeed/tag-feed/tag-feed.module';
 
 
 
@@ -30,8 +30,7 @@ import { TagFeedComponent } from './tagFeed/Components/tag-feed/tag-feed.compone
   declarations: [
     AppComponent,
     HeaderComponent,
-    TagListComponent,
-    TagFeedComponent,
+    TagListComponent
     
   ],
   imports: [
@@ -40,6 +39,7 @@ import { TagFeedComponent } from './tagFeed/Components/tag-feed/tag-feed.compone
     AuthModule,
     GlobalFeedModule,
     YourFeedModule,
+    TagFeedModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,

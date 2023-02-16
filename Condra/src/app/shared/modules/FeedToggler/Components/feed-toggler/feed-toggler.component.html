@@ -21,8 +21,8 @@
             <div class="tab" (click)="setActiveTab('Global feed')" [class.active]="activeTab === 'Global feed'">Global feed</div>
     </a> 
     <a [routerLink]="['/tags', tagNameProps]" routerLinkActive="active" *ngIf="tagNameProps">
-        <div class="tab" (click)="setActiveTab('Global feed')" [class.active]="activeTab === 'Global feed'">{{tagNameProps}}</div>
-</a>
+        <div class="tab" (click)="setActiveTab('Tag feed')" [class.active]="activeTab === 'Tag feed'">#{{tagNameProps}}</div>
+    </a>
 </div>
     
 </div>

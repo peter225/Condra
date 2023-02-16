@@ -1,0 +1,12 @@
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: justify;
+}
+/* app-feed-toggler {
+    padding-left: 50px;
+} */
+app-popular-tags {
+    padding-left: 10px;
+}
