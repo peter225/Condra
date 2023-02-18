@@ -1,20 +1,20 @@
-const getAllPosts = async(req,res) => {
+const getAllArticles = async(req,res) => {
     res.send('get all posts')
 }
 
-const getPost = async(req,res) => {
+const getArticle = async(req,res) => {
     res.send('get a post')
 }
-const createPost = async(req,res) => {
+const createArticle = async(req,res) => {
     res.send('create a new post')
 }
 
-const editPost = async(req,res) => {
+const editArticle = async(req,res) => {
     res.send('edit and a update a post')
 }
 
-const deletePost = async(req,res) => {
+const deleteArticle = async(req,res) => {
     res.send('delete a post')
 }
 
-module.exports = {getAllPosts,getPost, createPost, editPost, deletePost}
+module.exports = {getAllArticles,getArticle, createArticle, editArticle, deleteArticle}
