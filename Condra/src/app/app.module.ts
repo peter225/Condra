@@ -21,7 +21,7 @@ import { GlobalFeedModule } from './globalFeed/global-feed/global-feed.module';
 import { TagListComponent } from './shared/Components/tag-list/tag-list.component';
 import { YourFeedModule } from './yourFeed/your-feed/your-feed.module';
 import { TagFeedModule } from './tagFeed/tag-feed/tag-feed.module';
-import { ArticleComponent } from './Article/Components/article/article.component';
+import { ArticleModule } from './Article/article/article.module';
 
 
 
@@ -31,14 +31,14 @@ import { ArticleComponent } from './Article/Components/article/article.component
   declarations: [
     AppComponent,
     HeaderComponent,
-    TagListComponent,
-    ArticleComponent
+    TagListComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    ArticleModule,
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,

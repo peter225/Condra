@@ -8,13 +8,18 @@ import { reducers } from '../store/reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-
+const routes = [
+  {
+    path: 'articles/:slug',
+    component: ArticleComponent
+  }
+]
 
 @NgModule({
   declarations: [ArticleComponent],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule.forChild(routes),
     EffectsModule.forFeature([GetArticleEffect]),
     StoreModule.forFeature('article',reducers)
   ],
