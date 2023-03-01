@@ -7,6 +7,7 @@ import { GetArticleEffect } from '../store/effects/getArticle.effect';
 import { reducers } from '../store/reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes = [
   {
@@ -19,6 +20,7 @@ const routes = [
   declarations: [ArticleComponent],
   imports: [
     CommonModule,
+    MatIconModule,
     RouterModule.forChild(routes),
     EffectsModule.forFeature([GetArticleEffect]),
     StoreModule.forFeature('article',reducers)

@@ -1,1 +1,26 @@
-<p>article works!</p>
+<div class="header">
+    <div class="banner">
+      <div class="container" *ngIf="article">
+          <h1>{{article.title}}</h1>
+      </div>
+        <div class="nav-menu">
+            <a [routerLink]="['/profiles', article.author.username]">
+                <img [src]="article.author.image">
+            </a>
+        </div>
+        <div class="nav-menu">
+            <a [routerLink]="['/profiles', article.author.username]">
+                {{article.author.username}}
+            </a>
+            <span class="date">
+                {{article.createdAt|date}}
+            </span>
+        </div>
+        <span *ngIf="isAuthor$ | async">
+            <a [routerLink]="['/articles', article.slug, '/edit']">
+                <mat-icon>update</mat-icon>Edit Article
+            </a>
+        </span>
+    </div>
+</div>
+  
