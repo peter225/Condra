@@ -23,7 +23,7 @@ import { YourFeedModule } from './yourFeed/your-feed/your-feed.module';
 import { TagFeedModule } from './tagFeed/tag-feed/tag-feed.module';
 import { ArticleModule } from './Article/article/article.module';
 import { CreateArticleModule } from './createArticle/create-article/create-article.module';
-import { ArticleFormComponent } from './shared/modules/Components/article-form/article-form.component';
+import { ArticleFormModule } from './shared/modules/articleForm/article-form/article-form.module';
 
 
 
@@ -33,12 +33,12 @@ import { ArticleFormComponent } from './shared/modules/Components/article-form/a
   declarations: [
     AppComponent,
     HeaderComponent,
-    TagListComponent,
-    ArticleFormComponent
+    TagListComponent
     
   ],
   imports: [
     BrowserModule,
+    ArticleFormModule,
     AppRoutingModule,
     CreateArticleModule,
     AuthModule,
