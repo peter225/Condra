@@ -6,10 +6,19 @@
   
   .banner {
     display: flex;
+    flex-direction: column; 
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+  }
+  .round-image {
+      border-radius: 50%;
+      width:50px;
   }
   
+  .userName{
+      font-size: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
   .blog-title {
     margin: 0;
   }
@@ -25,4 +34,11 @@
     color: #fff;
     text-decoration: none;
  }
-  
+
+.article{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 20px;
+    padding: 20px;
+}

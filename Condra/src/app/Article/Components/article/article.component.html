@@ -2,14 +2,12 @@
     <div class="banner">
       <div class="container" *ngIf="article">
           <h1>{{article.title}}</h1>
-      </div>
+      </div> 
         <div class="nav-menu">
             <a [routerLink]="['/profiles', article.author.username]">
-                <img [src]="article.author.image">
+                <img [src]="article.author.image"class="round-image" >
             </a>
-        </div>
-        <div class="nav-menu">
-            <a [routerLink]="['/profiles', article.author.username]">
+            <a [routerLink]="['/profiles', article.author.username]" class="userName">
                 {{article.author.username}}
             </a>
             <span class="date">
@@ -20,7 +18,19 @@
             <a [routerLink]="['/articles', article.slug, '/edit']">
                 <mat-icon>update</mat-icon>Edit Article
             </a>
+            <a [routerLink]="['/articles', article.slug, '/edit']">
+                <mat-icon>delete</mat-icon>Delete Article
+            </a>
         </span>
     </div>
+</div>
+<div class="container page">
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+    <div *ngIf="article">
+        <div class="article">
+            <p>{{article.body}}</p>
+        </div>
+    </div>
+    <app-tag-list [tagList]="article.tagList"></app-tag-list>
 </div>
   
