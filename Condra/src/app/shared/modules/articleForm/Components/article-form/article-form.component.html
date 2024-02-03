@@ -1,1 +1,6 @@
-<p>article-form works!</p>
+<div class="container">
+    <div class="row">
+        <app-backend-error-messages *ngIf="errorsProps" 
+        [backendErrors]="errorsProps"></app-backend-error-messages>
+    </div>
+</div>

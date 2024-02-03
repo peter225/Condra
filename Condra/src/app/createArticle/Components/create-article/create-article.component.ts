@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-create-article',
@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit(): void {
-  }
 
+  }
 }
