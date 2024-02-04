@@ -1,0 +1,12 @@
+{
+  "name": "condra",
+  "version": "1.0.0",
+  "description": "This is a full-stack project to create posts, read posts and get notifications on latest posts on several topics.\r It's built with Angular on the frontend and Node.js on the backend. NgRx is heavily employed for managing states on the frontend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
