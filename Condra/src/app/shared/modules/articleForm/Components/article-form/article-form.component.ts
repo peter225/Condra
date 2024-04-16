@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface';
 import { BackendErrorsInterface } from 'src/app/shared/types/backendError.interface';
 
@@ -16,8 +16,8 @@ export class ArticleFormComponent implements OnInit {
   @Output('articleSubmit') articleSubmitEvent = new EventEmitter<
   ArticleInputInterface>()
 
-  form: FormGroup
-  constructor(private fb: FormBuilder) { }
+  form: UntypedFormGroup
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.initializeForm()

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder,Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormBuilder,Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { map, Observable, pluck } from 'rxjs';
 import { AuthService } from 'src/app/Auth/services/auth.service';
@@ -16,7 +16,7 @@ import { LoginAction } from '../../store/actions/login-action';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   isSubmitting$: Observable<boolean>;
   validationErrors$: Observable<BackendErrorsInterface | null >;
   hide = true;
@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
   }
 
   initializeForm(): void {
-    this.form = new FormGroup({
-      email: new FormControl('', {
+    this.form = new UntypedFormGroup({
+      email: new UntypedFormControl('', {
         validators: [Validators.required]
       }),
       
-      password: new FormControl('', {
+      password: new UntypedFormControl('', {
         validators: [Validators.required]}),
     });
   }

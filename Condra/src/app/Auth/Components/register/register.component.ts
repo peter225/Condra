@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder,Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormBuilder,Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { map, Observable, pluck } from 'rxjs';
 import { AuthService } from 'src/app/Auth/services/auth.service';
@@ -14,7 +14,7 @@ import { BackendErrorsInterface } from 'src/app/shared/types/backendError.interf
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   isSubmitting$: Observable<boolean>;
   validationErrors$: Observable<BackendErrorsInterface | null >;
   errors:BackendErrorsInterface
@@ -30,13 +30,13 @@ export class RegisterComponent implements OnInit {
   }
 
   initializeForm(): void {
-    this.form = new FormGroup({
-      username: new FormControl('', {
+    this.form = new UntypedFormGroup({
+      username: new UntypedFormControl('', {
         validators: [Validators.required]
       }),
-      email: new FormControl('', {
+      email: new UntypedFormControl('', {
         validators: [Validators.required]}),
-      password: new FormControl('', {
+      password: new UntypedFormControl('', {
         validators: [Validators.required]}),
     });
   }
